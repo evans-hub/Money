@@ -12,6 +12,7 @@ import android.os.SystemClock;
 import android.util.Size;
 import android.util.TypedValue;
 import android.view.Display;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -125,32 +126,8 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 
                         }
                         resultsView.setResults(results);
-                    if ( !two && results.toString().contains("200")){
-                        mp2.start();
-                        two =true;
-                        fifty = false;
-                        hun = false;
-                        punch = false;
-                        k = false;
-                        }
-                        if ( !hun && results.toString().contains("100")&& !results.contains("1000")){
-                            mp.start();
-                            hun = true;
-                            two =false;
-                            fifty = false;
-                            punch = false;
-                            k = false;
-                        }
-                        if ( !fifty && results.toString().contains("50")&&
-                        !results.contains("500")){
-                            mp1.start();
-                            fifty  =true;
-                            two =false;
-                            hun = false;
-                            punch = false;
-                            k = false;
-                        }
-                        if ( !punch && results.toString().contains("500")){
+
+                        if ( !punch && results.toString().contains("p")){
                             mp3.start();
                             hun = false;
                             two =false;
@@ -158,7 +135,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
                             punch = true;
                             k = false;
                         }
-                        if ( !k && results.toString().contains("1000")){
+                        if ( !k && results.toString().contains("k")){
                             mp4.start();
                             fifty  =false;
                             two =false;
@@ -166,9 +143,35 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
                             punch = false;
                             k = true;
                         }
-                       // if (resultsView.getText().toString().equalsIgnoreCase("[[0] 50 (97.1%)]")){
-                           // Toast.makeText(ClassifierActivity.this, "hwduhejhdjn", Toast.LENGTH_LONG).show();
-                       // }
+                    if ( !two && results.toString().contains("two")){
+                        mp2.start();
+                        two =true;
+                        fifty = false;
+                        hun = false;
+                        punch = false;
+                        k = false;
+                        }
+                        if ( !hun && results.toString().contains("one")){
+                            mp.start();
+                            hun = true;
+                            two =false;
+                            fifty = false;
+                            punch = false;
+                            k = false;
+                        }
+                        if ( !fifty && results.toString().contains("fif")){
+                            mp1.start();
+                            fifty  =true;
+                            two =false;
+                            hun = false;
+                            punch = false;
+                            k = false;
+                        }
+
+
+
+
+
                         requestRender();
                         computing = false;
                         if (postInferenceCallback != null) {

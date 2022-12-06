@@ -1,6 +1,6 @@
-100
-1000
-200
-50
-500
+fifty
+k
 Negative
+one
+punch
+two
